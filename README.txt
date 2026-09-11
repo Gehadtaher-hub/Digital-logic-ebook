@@ -1,11 +1,3 @@
-FOUNDATIONS OF DIGITAL CIRCUITS - DARK TECHNOLOGY THEME
+LIGHT ELECTRONICS EDITION
 
-Upload all extracted files to the same GitHub repository root.
-
-Features:
-- Genuine PageFlip animation
-- Clickable PDF table of contents and embedded links
-- Dark navy/cyan circuit theme
-- Interactive Activities and Back to eBook navigation
-
-The PDF and JavaScript libraries require an internet connection when opened through GitHub Pages.
+Upload all six extracted files to the repository root. This edition includes a lighter blue/white theme, a clickable PDF table of contents, 108 questions, 36 dedicated challenge scenarios, chapter practice, configurable exams, mastery, glossary, and reports.
