@@ -1,5 +1,11 @@
-FOUNDATIONS OF DIGITAL CIRCUITS - CLICKABLE FLIPBOOK
+FOUNDATIONS OF DIGITAL CIRCUITS - DARK TECHNOLOGY THEME
 
-Upload all extracted files to the same GitHub repository folder.
+Upload all extracted files to the same GitHub repository root.
 
-The ebook opens first in index.html. Click the RIGHT half of a displayed page to turn forward, click the LEFT half to turn backward, or drag/swipe a page corner. The activity studio contains 60 questions across all 6 chapters.
+Features:
+- Genuine PageFlip animation
+- Clickable PDF table of contents and embedded links
+- Dark navy/cyan circuit theme
+- Interactive Activities and Back to eBook navigation
+
+The PDF and JavaScript libraries require an internet connection when opened through GitHub Pages.
