@@ -1,14 +1,14 @@
-FOUNDATIONS OF DIGITAL CIRCUITS - ADVANCED INTERACTIVE EDITION
+FOUNDATIONS OF DIGITAL CIRCUITS - VISUAL LAB EDITION
 
-Features:
-- Light electronics theme
+Highlights:
+- Attractive teal, violet, coral, and gold light theme
 - Clickable PDF table of contents and embedded links
-- 180 total questions, including 72 additional design and troubleshooting scenarios
-- 25-question timed Challenge mode
-- 60-question, 90-minute balanced Mock Final Examination
-- Configurable exams
-- Interactive AND, OR, NOT, NAND, NOR, XOR, and XNOR simulator
-- Live Half Adder SUM and CARRY simulation
-- Practice, mastery, glossary, and reports
+- 180 assessment questions, including 72 scenario questions
+- 12 additional visual circuit-diagram challenges
+- Balanced 60-question mock final examination
+- Gate simulator: AND, OR, NOT, NAND, NOR, XOR, XNOR, BUFFER, and 3-input variants
+- Live Half Adder outputs
+- Two-stage visual circuit designer with inputs A, B, C and live output LEDs
+- Random circuit design challenges
 
 Upload all six extracted files to the repository root.
