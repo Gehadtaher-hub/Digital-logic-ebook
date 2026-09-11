@@ -1,0 +1,8 @@
+{
+  "name": "Foundations of Digital Circuits",
+  "short_name": "Digital Circuits",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#eee5d3",
+  "theme_color": "#173b63"
+}
