@@ -1,3 +1,14 @@
-LIGHT ELECTRONICS EDITION
+FOUNDATIONS OF DIGITAL CIRCUITS - ADVANCED INTERACTIVE EDITION
 
-Upload all six extracted files to the repository root. This edition includes a lighter blue/white theme, a clickable PDF table of contents, 108 questions, 36 dedicated challenge scenarios, chapter practice, configurable exams, mastery, glossary, and reports.
+Features:
+- Light electronics theme
+- Clickable PDF table of contents and embedded links
+- 180 total questions, including 72 additional design and troubleshooting scenarios
+- 25-question timed Challenge mode
+- 60-question, 90-minute balanced Mock Final Examination
+- Configurable exams
+- Interactive AND, OR, NOT, NAND, NOR, XOR, and XNOR simulator
+- Live Half Adder SUM and CARRY simulation
+- Practice, mastery, glossary, and reports
+
+Upload all six extracted files to the repository root.
