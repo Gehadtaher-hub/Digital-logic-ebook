@@ -1,166 +1,41 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Foundations of Digital Circuits</title>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Digital Logic Learning Hub | Lectures 1 and 2</title>
 <style>
-:root{--navy:#12395a;--blue:#1976a8;--cyan:#2aaac7;--green:#2d8f69;--paper:#fff;--bg:#eef7fa;--line:#bcd9e3;--text:#18313f}
-*{box-sizing:border-box}
-html,body{margin:0;min-height:100%;font-family:Segoe UI,Arial,sans-serif;background:linear-gradient(135deg,#f8fcfd,#e5f2f5);color:var(--text)}
-body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.15;background-image:linear-gradient(90deg,transparent 49%,#199ec733 50%,transparent 51%),linear-gradient(transparent 49%,#199ec733 50%,transparent 51%);background-size:64px 64px}
-header{position:sticky;top:0;z-index:20;background:linear-gradient(110deg,#12395a,#1d6685);color:#fff;display:flex;justify-content:space-between;align-items:center;gap:15px;padding:12px 20px;border-bottom:4px solid #55c8c4;box-shadow:0 4px 16px #12395a44}
-h1{margin:0;font-size:clamp(20px,3vw,30px)}
-.sub{color:#c8f2f5;font-size:13px}
-.header-actions{display:flex;gap:9px;align-items:center;justify-content:flex-end;flex-wrap:wrap}
-.btn,.toolbar button,.toolbar input{border:1px solid #78b8ca;border-radius:10px;padding:9px 13px;background:#fff;color:#12395a;font-weight:750}
-.btn{text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:6px;transition:.2s}
-.btn:hover,.btn:focus-visible{transform:translateY(-2px);box-shadow:0 6px 14px #08243d44}
-.btn.active{background:#2d8f69;color:#fff;border-color:#8de0bd}
-.wrap{padding:14px;display:flex;flex-direction:column;align-items:center}
-.toolbar{display:flex;gap:9px;align-items:center;justify-content:center;flex-wrap:wrap;background:#fffffff0;border:1px solid var(--line);border-radius:14px;padding:9px 14px;margin-bottom:12px;box-shadow:0 5px 16px #18466322}
-.toolbar input{width:70px}
-.book-shell{width:min(1240px,97vw);height:calc(100vh - 170px);min-height:300px;display:flex;justify-content:center;align-items:flex-start;overflow:auto}
-.flip-book{display:none;filter:drop-shadow(0 18px 22px #19384b55)}
-.page{background:#fff;position:relative;overflow:hidden;box-shadow:inset 0 0 0 1px #9dcbd7}
-.page canvas{width:100%;height:100%;object-fit:contain;background:#fff}
-.link-layer{position:absolute;inset:0;pointer-events:none}
-.pdf-link{position:absolute;pointer-events:auto;background:transparent;border:0;cursor:pointer}
-.pdf-link:hover{background:#4fc3d633;outline:2px solid #1aa1be}
-.loading{padding:32px;background:#fff;border:1px solid var(--line);border-radius:17px;text-align:center}
-.watermark{position:absolute;bottom:9px;left:0;right:0;text-align:center;color:#1976a833;font-size:12px;font-weight:bold;pointer-events:none}
-@media(max-width:700px){header{position:relative;flex-direction:column;align-items:flex-start}.header-actions{width:100%;justify-content:flex-start}.book-shell{height:calc(100vh - 285px)}.hint{display:none}}
-</style>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.min.js"></script>
-</head>
+:root{--ink:#17343d;--navy:#173f5f;--blue:#1f7a8c;--cyan:#38b2ac;--violet:#6657a8;--gold:#f2b134;--coral:#f25f5c;--line:#c9e2df;--bg:#eef8f7;--ok:#16785b;--bad:#b83c4a}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Segoe UI,Arial,sans-serif;background:linear-gradient(135deg,#fff8e8,#eef8f7 40%,#e9e7f7);color:var(--ink)}button,a,input,select{font:inherit}.top{position:sticky;top:0;z-index:20;background:linear-gradient(110deg,var(--navy),var(--blue),var(--cyan));color:#fff;border-bottom:4px solid var(--gold);padding:12px 18px;display:flex;gap:12px;align-items:center;justify-content:space-between}.brand{font-size:1.08rem;font-weight:900}.topnav{display:flex;gap:8px;flex-wrap:wrap}.topnav a,.btn{border:0;border-radius:10px;padding:10px 13px;font-weight:800;cursor:pointer;text-decoration:none}.topnav a{background:#ffffff20;color:#fff;border:1px solid #ffffff55}.layout{display:grid;grid-template-columns:280px 1fr;min-height:calc(100vh - 64px)}aside{padding:15px;background:#f9ffff;border-right:1px solid var(--line);position:sticky;top:64px;height:calc(100vh - 64px);overflow:auto}.progress{height:12px;background:#dcebea;border-radius:20px;overflow:hidden}.progress>i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--coral),var(--gold),var(--cyan));transition:.3s}.navbtn{width:100%;text-align:left;margin:5px 0;padding:11px;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--navy);font-weight:750;cursor:pointer}.navbtn.active,.navbtn:hover{background:linear-gradient(100deg,var(--blue),var(--violet));color:#fff}.navbtn.done::after{content:' ✓';float:right;color:#21d9a3}main{width:min(1120px,100%);margin:auto;padding:22px}.hero,.card{background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:0 12px 32px #173f5f18}.hero{padding:30px;background:linear-gradient(120deg,#fff,#f3ffff 58%,#fff4d8)}.hero h1{margin:.2em 0;color:var(--navy);font-size:clamp(1.8rem,4vw,3rem)}.chips{display:flex;gap:8px;flex-wrap:wrap}.chip{background:#dff4f7;color:#12637a;border-radius:999px;padding:6px 10px;font-weight:800}.lesson{display:none}.lesson.active{display:block}.card{padding:22px;margin:16px 0}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}.tile{border:1px solid var(--line);border-radius:14px;padding:16px;background:#fbfeff}.tile h3{margin-top:0;color:var(--blue)}.callout{border-left:6px solid var(--gold);padding:13px;background:#fff9e9;border-radius:8px}.formula{font-family:Consolas,monospace;font-size:1.25rem;background:#173f5f;color:#fff;padding:12px;border-radius:10px;text-align:center}.controls{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.switch{min-width:78px;background:#dbe8ea;color:var(--navy)}.switch.on{background:var(--gold)}.lamp{width:62px;height:62px;border-radius:50%;display:grid;place-items:center;background:#cfd9da;border:6px solid #74888b;font-weight:900}.lamp.on{background:#ffe65c;box-shadow:0 0 25px #f2b134}.truth{width:100%;border-collapse:collapse;margin-top:12px}.truth th,.truth td{border:1px solid var(--line);padding:9px;text-align:center}.truth th{background:var(--navy);color:#fff}.truth tr.live{background:#fff0b8;font-weight:900}.option{display:block;width:100%;text-align:left;margin:8px 0;border:1px solid var(--line);padding:11px;border-radius:9px;background:#fff;cursor:pointer}.option.good{border-color:var(--ok);background:#e7f8f1}.option.bad{border-color:var(--bad);background:#fff0f1}.feedback{min-height:1.5em;font-weight:800}.next{background:linear-gradient(100deg,var(--blue),var(--violet));color:#fff}.accent{background:linear-gradient(100deg,var(--coral),var(--gold));color:var(--ink)}.ghost{background:#eef6f7;color:var(--navy)}.pulsebar{display:grid;grid-template-columns:repeat(8,1fr);gap:4px;align-items:end;height:100px}.pulsebar span{background:var(--cyan);min-height:18px;border-radius:5px 5px 0 0}.pulsebar span.h{height:90px}.pulsebar span.l{height:25px}.hidden{display:none}@media(max-width:780px){.layout{display:block}aside{position:static;height:auto;border-right:0}.top{position:static;align-items:flex-start;flex-direction:column}.topnav{width:100%}.topnav a{flex:1;text-align:center}main{padding:12px}.hero,.card{padding:17px}.navlist{display:grid;grid-template-columns:1fr 1fr;gap:5px}.controls .btn{flex:1}.truth{font-size:.9rem}}
+</style></head>
 <body>
-<header>
-  <div>
-    <h1 id="siteTitle">Foundations of Digital Circuits</h1>
-    <div class="sub" id="bookSubtitle">Digital textbook • clickable contents</div>
-  </div>
-  <nav class="header-actions" aria-label="Book selection and activities">
-    <a id="mainBookBtn" class="btn" href="./index.html">📘 Main Book</a>
-    <a id="practicalBookBtn" class="btn" href="./index.html?book=practical">🧪 Practical Book</a>
-    <a class="btn" href="studio.html">Interactive Activities</a>
-  </nav>
-</header>
-<main class="wrap">
-  <div class="toolbar">
-    <button id="prev" type="button">Previous</button>
-    <span id="status">Preparing...</span>
-    <span class="hint">Contents and document links are clickable</span>
-    <button id="next" type="button">Next</button>
-    <label>Page <input id="pageNo" type="number" min="1" value="1"></label>
-  </div>
-  <div class="book-shell">
-    <div id="loading" class="loading"><h2>Loading flipbook</h2><p>Preparing pages and links...</p></div>
-    <div id="book" class="flip-book"></div>
-  </div>
-</main>
+<header class="top"><div class="brand">⚡ Digital Logic Learning Hub</div><nav class="topnav"><a href="digital_ebook.pdf">Open eBook</a><a href="studio.html">Full Activity Studio</a><a href="#hub">Lectures</a></nav></header>
+<div class="layout" id="hub"><aside><h3>Your progress</h3><div class="progress"><i id="bar"></i></div><p><b id="pct">0%</b> complete</p><div class="navlist" id="nav"></div><button class="navbtn" onclick="resetProgress()">Reset progress</button></aside><main>
+<section class="hero"><div class="chips"><span class="chip">Lecture 1</span><span class="chip">Lecture 2</span><span class="chip">Interactive practice</span></div><h1>Learn digital logic by seeing, trying, and checking</h1><p>This hub follows the two lecture decks. Complete each short lesson, use the live gate laboratory, then answer the checkpoint question.</p></section>
+<div id="lessons"></div>
+</main></div>
 <script>
-pdfjsLib.GlobalWorkerOptions.workerSrc='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
-
-const params=new URLSearchParams(window.location.search);
-const isPractical=params.get('book')==='practical';
-const pdfFile=isPractical?'practical_book.pdf':'digital_ebook.pdf';
-const displayTitle=isPractical?'Digital Circuits Practical Book':'Foundations of Digital Circuits';
-const watermarkText=isPractical?'DIGITAL CIRCUITS PRACTICAL BOOK':'FOUNDATIONS OF DIGITAL CIRCUITS';
-
-document.title=displayTitle;
-document.getElementById('siteTitle').textContent=displayTitle;
-document.getElementById('bookSubtitle').textContent=isPractical?'Practical laboratory edition • flipbook viewer':'Digital textbook • clickable contents';
-document.getElementById(isPractical?'practicalBookBtn':'mainBookBtn').classList.add('active');
-
-let book,total=0,pdfDoc;
-const bookEl=document.getElementById('book');
-const loadingEl=document.getElementById('loading');
-const statusEl=document.getElementById('status');
-const pageNoEl=document.getElementById('pageNo');
-const prevEl=document.getElementById('prev');
-const nextEl=document.getElementById('next');
-
-async function destPage(dest){
-  try{
-    const d=typeof dest==='string'?await pdfDoc.getDestination(dest):dest;
-    if(!d)return null;
-    return typeof d[0]==='object'?(await pdfDoc.getPageIndex(d[0]))+1:Number.isInteger(d[0])?d[0]+1:null;
-  }catch(error){return null}
-}
-
-async function addLinks(pdfPage,pageDiv,viewport){
-  const annotations=await pdfPage.getAnnotations({intent:'display'});
-  const layer=document.createElement('div');
-  layer.className='link-layer';
-  for(const annotation of annotations){
-    if(annotation.subtype!=='Link'||!annotation.rect)continue;
-    const rect=viewport.convertToViewportRectangle(annotation.rect);
-    const x=Math.min(rect[0],rect[2]);
-    const y=Math.min(rect[1],rect[3]);
-    const width=Math.abs(rect[2]-rect[0]);
-    const height=Math.abs(rect[3]-rect[1]);
-    const link=document.createElement('a');
-    link.className='pdf-link';
-    link.href='#';
-    link.style.cssText=`left:${x/viewport.width*100}%;top:${y/viewport.height*100}%;width:${width/viewport.width*100}%;height:${height/viewport.height*100}%`;
-    link.onclick=async event=>{
-      event.preventDefault();
-      event.stopPropagation();
-      if(annotation.url)window.open(annotation.url,'_blank','noopener');
-      else{
-        const page=await destPage(annotation.dest);
-        if(page)book.flip(page-1);
-      }
-    };
-    layer.appendChild(link);
-  }
-  pageDiv.appendChild(layer);
-}
-
-async function init(){
-  try{
-    pdfDoc=await pdfjsLib.getDocument(pdfFile).promise;
-    total=pdfDoc.numPages;
-    pageNoEl.max=total;
-    for(let number=1;number<=total;number++){
-      statusEl.textContent=`Preparing ${number}/${total}`;
-      const pdfPage=await pdfDoc.getPage(number);
-      const viewport=pdfPage.getViewport({scale:1.25});
-      const canvas=document.createElement('canvas');
-      canvas.width=viewport.width;
-      canvas.height=viewport.height;
-      await pdfPage.render({canvasContext:canvas.getContext('2d'),viewport}).promise;
-      const pageDiv=document.createElement('div');
-      pageDiv.className='page';
-      if(number===1)pageDiv.dataset.density='hard';
-      pageDiv.appendChild(canvas);
-      await addLinks(pdfPage,pageDiv,viewport);
-      const watermark=document.createElement('div');
-      watermark.className='watermark';
-      watermark.textContent=watermarkText;
-      pageDiv.appendChild(watermark);
-      bookEl.appendChild(pageDiv);
-    }
-    loadingEl.style.display='none';
-    bookEl.style.display='block';
-    book=new St.PageFlip(bookEl,{width:550,height:730,size:'stretch',minWidth:220,maxWidth:650,minHeight:280,maxHeight:760,showCover:true,mobileScrollSupport:false,usePortrait:true,drawShadow:true,flippingTime:700});
-    book.loadFromHTML(document.querySelectorAll('.page'));
-    book.on('flip',event=>{
-      statusEl.textContent=`Page ${event.data+1} of ${total}`;
-      pageNoEl.value=event.data+1;
-    });
-    statusEl.textContent=`Page 1 of ${total}`;
-  }catch(error){
-    loadingEl.innerHTML=`<h2>Unable to load ${isPractical?'practical book':'main ebook'}</h2><p>Confirm <strong>${pdfFile}</strong> is in the same folder as index.html.</p>`;
-    statusEl.textContent='File not found';
-  }
-}
-
-prevEl.onclick=()=>book&&book.flipPrev();
-nextEl.onclick=()=>book&&book.flipNext();
-pageNoEl.onchange=()=>book&&book.flip(Math.max(1,Math.min(total,+pageNoEl.value||1))-1);
-init();
-</script>
-</body>
-</html>
+const lessons=[
+{title:'L1.1 Analog and Digital Quantities',lecture:1,html:`<h2>Analog and Digital Quantities</h2><div class="grid"><div class="tile"><h3>Analog</h3><p>Changes continuously and may take any value in a range. Examples include temperature and microphone voltage.</p></div><div class="tile"><h3>Digital</h3><p>Uses separate states, most often binary <b>0</b> and <b>1</b>. Digital values are easier to store, process, copy, and protect from small noise.</p></div></div><div class="callout"><b>Hybrid system:</b> an ADC changes an analog signal into digital data. A DAC changes digital data back into an analog output.</div>`,q:'Which device converts a sensor voltage into binary data?',opts:['DAC','ADC','AND gate'],ans:1,why:'An ADC is an Analog-to-Digital Converter.'},
+{title:'L1.2 Bits and Logic Levels',lecture:1,html:`<h2>Bits and Logic Levels</h2><p>A <b>bit</b> is a binary digit. LOW represents logic 0 and HIGH represents logic 1. Real circuits use voltage ranges rather than one perfect voltage.</p><div class="grid"><div class="tile"><h3>Positive logic</h3><p>Higher voltage → 1<br>Lower voltage → 0</p></div><div class="tile"><h3>Important</h3><p>Do not confuse the logical value with an exact electrical voltage. The valid range depends on the logic family.</p></div></div>`,q:'In positive logic, HIGH usually represents:',opts:['0','1','An analog value'],ans:1,why:'Positive logic maps HIGH to 1 and LOW to 0.'},
+{title:'L1.3 Digital Waveforms',lecture:1,html:`<h2>Digital Pulses and Waveforms</h2><div class="pulsebar"><span class="l"></span><span class="h"></span><span class="h"></span><span class="l"></span><span class="l"></span><span class="h"></span><span class="h"></span><span class="l"></span></div><div class="grid"><div class="tile"><h3>Period and frequency</h3><div class="formula">f = 1 / T</div></div><div class="tile"><h3>Duty cycle</h3><div class="formula">D = (tHIGH / T) × 100%</div></div></div><p>A timing diagram aligns several waveforms on the same time axis so you can determine how outputs react to input changes.</p>`,q:'A waveform has T = 2 ms. Its frequency is:',opts:['50 Hz','500 Hz','2000 Hz'],ans:1,why:'f = 1/0.002 = 500 Hz.'},
+{title:'L1.4 Serial and Parallel Data',lecture:1,html:`<h2>Serial and Parallel Transfer</h2><div class="grid"><div class="tile"><h3>Serial</h3><p>Bits travel one after another over fewer lines. Wiring is simpler and long-distance transfer is practical.</p></div><div class="tile"><h3>Parallel</h3><p>Several bits travel at the same time over multiple lines. More wires are needed.</p></div></div>`,q:'Which method sends multiple bits simultaneously?',opts:['Serial','Parallel','Inversion'],ans:1,why:'Parallel transfer uses multiple data lines at the same time.'},
+{title:'L1.5 Basic Logic Functions',lecture:1,html:`<h2>NOT, AND, and OR</h2><div class="grid"><div class="tile"><h3>NOT</h3><p>Produces the complement: X = A̅</p></div><div class="tile"><h3>AND</h3><p>HIGH only when all inputs are HIGH: X = A·B</p></div><div class="tile"><h3>OR</h3><p>HIGH when any input is HIGH: X = A+B</p></div></div><p>Use the live laboratory in Lecture 2 to test these rules.</p>`,q:'Which gate is HIGH only when every input is HIGH?',opts:['OR','NOT','AND'],ans:2,why:'That is the defining rule of AND.'},
+{title:'L2.1 The Inverter',lecture:2,html:`<h2>The Inverter (NOT Gate)</h2><p>The inverter changes each logic state to its opposite. Its symbol contains a negation bubble. In Boolean algebra, the output is <b>X = A̅</b>.</p><div class="controls"><button class="btn switch" id="notA" onclick="toggleNot()">A = 0</button><div>→ NOT →</div><div class="lamp on" id="notX">X = 1</div></div><table class="truth"><tr><th>A</th><th>X = A̅</th></tr><tr><td>0</td><td>1</td></tr><tr><td>1</td><td>0</td></tr></table><div class="callout">Application: invert every bit to form the 1's complement of a binary number.</div>`,q:'If A = 1, the inverter output is:',opts:['0','1','Undefined'],ans:0,why:'NOT changes 1 to 0.'},
+{title:'L2.2 AND Gate',lecture:2,html:`<h2>AND Gate</h2><p>AND performs logical multiplication. For n inputs, the truth table contains 2ⁿ rows.</p><div class="formula">X = A · B</div><div class="callout">Applications: enable/inhibit control, measurement windows, and safety interlocks.</div>`,q:'How many rows are in a 3-input truth table?',opts:['3','6','8'],ans:2,why:'2³ = 8 possible input combinations.'},
+{title:'L2.3 OR Gate',lecture:2,html:`<h2>OR Gate</h2><p>OR performs logical addition. The output is HIGH when one or more inputs are HIGH.</p><div class="formula">X = A + B</div><p>The plus sign means logical OR, not ordinary arithmetic addition.</p>`,q:'For an OR gate, A=0 and B=1 gives:',opts:['0','1','A pulse only'],ans:1,why:'At least one input is HIGH, so OR produces 1.'},
+{title:'L2.4 NAND and NOR',lecture:2,html:`<h2>NAND and NOR Gates</h2><div class="grid"><div class="tile"><h3>NAND</h3><p>NOT-AND: X = (A·B)̅. It is LOW only when all inputs are HIGH.</p></div><div class="tile"><h3>NOR</h3><p>NOT-OR: X = (A+B)̅. It is HIGH only when all inputs are LOW.</p></div></div><div class="callout"><b>Universal gates:</b> either NAND gates alone or NOR gates alone can be connected to build all basic logic functions.</div>`,q:'Which gate is HIGH only when all inputs are LOW?',opts:['NAND','NOR','XOR'],ans:1,why:'NOR is the complement of OR.'},
+{title:'L2.5 XOR and XNOR',lecture:2,html:`<h2>Exclusive Gates</h2><div class="grid"><div class="tile"><h3>XOR</h3><p>HIGH when the two inputs are different. Used for modulo-2 addition and mismatch detection.</p></div><div class="tile"><h3>XNOR</h3><p>HIGH when the two inputs are equal. Used as an equality detector.</p></div></div>`,q:'A=1 and B=1. What is the XOR output?',opts:['0','1','It depends on frequency'],ans:0,why:'XOR is HIGH only when the inputs differ.'},
+{title:'L2.6 Live Gate Laboratory',lecture:2,html:`<h2>Live Gate Laboratory</h2><p>Select a gate and switch A and B. The matching truth-table row is highlighted.</p><div class="controls"><select id="gate" onchange="updateLab()"><option>AND</option><option>OR</option><option>NAND</option><option>NOR</option><option>XOR</option><option>XNOR</option></select><button class="btn switch" id="labA" onclick="toggleLab('A')">A = 0</button><button class="btn switch" id="labB" onclick="toggleLab('B')">B = 0</button><div class="lamp" id="labX">X = 0</div></div><div id="labTable"></div>`,q:'Which gate is best for detecting whether two bits are equal?',opts:['XNOR','XOR','OR'],ans:0,why:'XNOR outputs 1 when its inputs match.'}
+];
+let current=0,done=JSON.parse(localStorage.getItem('dlDone')||'[]'),state={notA:0,A:0,B:0};
+const nav=document.getElementById('nav'),wrap=document.getElementById('lessons');
+lessons.forEach((l,i)=>{let b=document.createElement('button');b.className='navbtn';b.textContent=l.title;b.onclick=()=>show(i);b.id='nav'+i;nav.appendChild(b);let s=document.createElement('section');s.className='lesson';s.id='lesson'+i;s.innerHTML=`<div class="card">${l.html}</div><div class="card"><h3>Checkpoint</h3><p>${l.q}</p><div>${l.opts.map((o,j)=>`<button class="option" onclick="answer(${i},${j},this)">${String.fromCharCode(65+j)}. ${o}</button>`).join('')}</div><p class="feedback" id="fb${i}"></p><div class="controls"><button class="btn ghost" onclick="show(Math.max(0,${i}-1))">Previous</button><button class="btn next" onclick="show(Math.min(lessons.length-1,${i}+1))">Next lesson</button></div></div>`;wrap.appendChild(s)});
+function show(i){current=i;document.querySelectorAll('.lesson').forEach(x=>x.classList.remove('active'));document.querySelectorAll('.navbtn').forEach(x=>x.classList.remove('active'));document.getElementById('lesson'+i).classList.add('active');document.getElementById('nav'+i).classList.add('active');if(i===10)updateLab();window.scrollTo({top:0,behavior:'smooth'})}
+function answer(i,j,el){let box=el.parentElement;box.querySelectorAll('button').forEach(x=>x.disabled=true);let ok=j===lessons[i].ans;el.classList.add(ok?'good':'bad');if(!ok)box.children[lessons[i].ans].classList.add('good');document.getElementById('fb'+i).textContent=(ok?'Correct. ':'Review: ')+lessons[i].why;if(!done.includes(i)){done.push(i);localStorage.setItem('dlDone',JSON.stringify(done));progress()}}
+function progress(){let p=Math.round(done.length/lessons.length*100);document.getElementById('pct').textContent=p+'%';document.getElementById('bar').style.width=p+'%';lessons.forEach((_,i)=>document.getElementById('nav'+i).classList.toggle('done',done.includes(i)))}
+function resetProgress(){localStorage.removeItem('dlDone');done=[];progress();location.reload()}
+function toggleNot(){state.notA=1-state.notA;document.getElementById('notA').textContent='A = '+state.notA;document.getElementById('notA').classList.toggle('on',state.notA);let x=1-state.notA;document.getElementById('notX').textContent='X = '+x;document.getElementById('notX').classList.toggle('on',x)}
+function toggleLab(k){state[k]=1-state[k];document.getElementById('lab'+k).textContent=k+' = '+state[k];document.getElementById('lab'+k).classList.toggle('on',state[k]);updateLab()}
+function calc(g,a,b){return {AND:a&b,OR:a|b,NAND:1-(a&b),NOR:1-(a|b),XOR:a^b,XNOR:1-(a^b)}[g]}
+function updateLab(){let g=document.getElementById('gate').value,x=calc(g,state.A,state.B),lamp=document.getElementById('labX');lamp.textContent='X = '+x;lamp.classList.toggle('on',x);let rows='';for(let a=0;a<2;a++)for(let b=0;b<2;b++)rows+=`<tr class="${a===state.A&&b===state.B?'live':''}"><td>${a}</td><td>${b}</td><td>${calc(g,a,b)}</td></tr>`;document.getElementById('labTable').innerHTML=`<table class="truth"><tr><th>A</th><th>B</th><th>${g}</th></tr>${rows}</table>`}
+progress();show(0);
+</script></body></html>
