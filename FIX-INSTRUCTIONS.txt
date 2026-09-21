@@ -1,0 +1,9 @@
+FIXED UNIFIED DIGITAL LOGIC HUB
+
+The large blank area and narrow content were caused by the hidden sidebar leaving its 290-pixel grid column active. This version changes the main layout to one full-width column whenever Learning Dashboard, Lecture 1 Simulator, or Lecture 2 Gate Lab is selected.
+
+Upload both files to the repository root:
+- index.html
+- lecture-1-simulator.html
+
+Replace the old index.html. Keep studio.html and digital_ebook.pdf. Commit to main, wait for GitHub Pages deployment, then hard-refresh with Ctrl+Shift+R.
