@@ -1,0 +1,15 @@
+UNIFIED DIGITAL LOGIC HUB
+
+This version combines the complete Lecture 1 and Lecture 2 explanations with the full Lecture 1 simulator inside the main index experience.
+
+Upload these files together to the repository root:
+- index.html
+- lecture-1-simulator.html
+
+Keep these existing files in the same root folder:
+- studio.html
+- digital_ebook.pdf
+
+Replace the old index.html, commit to main, wait for GitHub Pages to deploy, and hard-refresh the site with Ctrl+Shift+R.
+
+The main index now provides dashboard tabs for all concepts, the embedded Lecture 1 simulator, the Lecture 2 gate laboratory, and both lecture quizzes.
