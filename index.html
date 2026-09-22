@@ -32,9 +32,10 @@ h1{margin:0;font-size:clamp(20px,3vw,30px)}
 @media(max-width:700px){header{position:relative;flex-direction:column;align-items:flex-start}.header-actions{width:100%;justify-content:flex-start}.book-shell{height:calc(100vh - 285px)}.hint{display:none}}
 
     .lecture-menu{position:relative;display:inline-block}
-    .lecture-menu>button{cursor:pointer;font:inherit}
+    .lecture-menu>summary{cursor:pointer;font:inherit;list-style:none}
+    .lecture-menu>summary::-webkit-details-marker{display:none}
     .lecture-dropdown{display:none;position:absolute;right:0;top:calc(100% + 8px);min-width:245px;padding:8px;background:#fff;border:1px solid #d9d9d9;border-radius:12px;box-shadow:0 12px 28px #0002;z-index:999}
-    .lecture-menu.open .lecture-dropdown{display:grid;gap:6px}
+    .lecture-menu[open] .lecture-dropdown{display:grid;gap:6px}
     .lecture-dropdown a{display:block;text-align:left;color:#3d224f;text-decoration:none;padding:10px 12px;border-radius:8px;font-weight:700;white-space:nowrap}
     .lecture-dropdown a:hover,.lecture-dropdown a:focus{background:#f2e9f4}
 </style>
@@ -51,14 +52,14 @@ h1{margin:0;font-size:clamp(20px,3vw,30px)}
     <a id="mainBookBtn" class="btn" href="./index.html">📘 Main Book</a>
     <a id="practicalBookBtn" class="btn" href="./index.html?book=practical">🧪 Practical Book</a>
     <a class="btn" href="studio.html">Interactive Activities</a>
-    <div class="lecture-menu" id="lectureMenu">
-      <button class="btn" id="lectureToggle" type="button" aria-haspopup="true" aria-expanded="false">🎓 Lectures ▾</button>
-      <div class="lecture-dropdown" id="lectureDropdown" role="menu">
-        <a href="lectures.html" role="menuitem">Lecture Dashboard</a>
-        <a href="lecture-1-simulator.html" role="menuitem">Lecture 1: Explanation & Simulator</a>
-        <a href="lecture-2-simulator.html" role="menuitem">Lecture 2: Explanation & Gate Simulator</a>
-      </div>
-    </div>
+    <details class="lecture-menu">
+      <summary class="btn">🎓 Lectures ▾</summary>
+      <nav class="lecture-dropdown" aria-label="Lecture selection">
+        <a href="./lectures.html">Lecture Dashboard</a>
+        <a href="./lecture-1-simulator.html">Lecture 1: Explanation &amp; Simulator</a>
+        <a href="./lecture-2-simulator.html">Lecture 2: Explanation &amp; Gate Simulator</a>
+      </nav>
+    </details>
   </nav>
 </header>
 <main class="wrap">
@@ -176,24 +177,6 @@ prevEl.onclick=()=>book&&book.flipPrev();
 nextEl.onclick=()=>book&&book.flipNext();
 pageNoEl.onchange=()=>book&&book.flip(Math.max(1,Math.min(total,+pageNoEl.value||1))-1);
 init();
-</script>
-<script>
-(function(){
-  const menu=document.getElementById('lectureMenu');
-  const toggle=document.getElementById('lectureToggle');
-  if(!menu||!toggle)return;
-  toggle.addEventListener('click',function(e){
-    e.preventDefault();e.stopPropagation();
-    const open=menu.classList.toggle('open');
-    toggle.setAttribute('aria-expanded',String(open));
-  });
-  document.addEventListener('click',function(e){
-    if(!menu.contains(e.target)){menu.classList.remove('open');toggle.setAttribute('aria-expanded','false');}
-  });
-  document.addEventListener('keydown',function(e){
-    if(e.key==='Escape'){menu.classList.remove('open');toggle.setAttribute('aria-expanded','false');toggle.focus();}
-  });
-})();
 </script>
 </body>
 </html>
