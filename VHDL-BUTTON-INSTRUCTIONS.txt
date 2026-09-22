@@ -1,0 +1,9 @@
+SEPARATE VHDL BUTTON UPDATE
+
+Upload these files to the repository root:
+- index.html
+- lecture-1-simulator.html
+- lecture-2-simulator.html
+- vhdl-gates.html
+
+The VHDL Tutorial button is separate from the Lecture 1 / Lecture 2 dropdown. Changing the selected lecture does not change or hide the VHDL button.
