@@ -1,0 +1,10 @@
+UPDATED INDEX WITH VHDL TUTORIAL
+
+This update preserves the uploaded index.html content and the uploaded lecture-1-simulator.html without changing their existing lessons, simulator, gate lab, or quizzes. It only adds a new VHDL Tutorial tab and dashboard card.
+
+The VHDL tutorial has three sections:
+1. Basic Gates
+2. Combinational Logic
+3. Sequential Logic
+
+Upload index-with-vhdl.html to GitHub, rename it to index.html, and replace the current index.html. Keep lecture-1-simulator.html unchanged in the same repository root.
